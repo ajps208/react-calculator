@@ -15,6 +15,9 @@ function App() {
       } catch (error) {
         setResult('Error');
       }
+    } else if (value === 'DEL') {
+      // Remove the last character from the operation
+      setOperation(operation.slice(0, -1));
     } else {
       setOperation(operation + value);
     }
@@ -22,7 +25,7 @@ function App() {
 
   return (
     <>
-      <h1 className='mt-5' style={{ textAlign: 'center',color:"white" }}>Calculator</h1>
+      <h1 className='mt-5' style={{ textAlign: 'center', color: "white" }}>Calculator</h1>
       <div className="calc-body">
         <div className="calc-screen">
           <div id="calc-operation">{operation}</div>
@@ -33,7 +36,7 @@ function App() {
           <button className="ac" onClick={() => handleButtonClick('AC')}>
             AC
           </button>
-          <button className="opt" onClick={() => handleButtonClick('+')}>
+          <button className="opt" onClick={() => handleButtonClick('+/-')}>
             +/-
           </button>
           <button className="opt" onClick={() => handleButtonClick('%')}>
@@ -63,6 +66,9 @@ function App() {
           <button onClick={() => handleButtonClick('0')}>0</button>
           <button onClick={() => handleButtonClick('.')}>.</button>
           <button onClick={() => handleButtonClick('=')}>=</button>
+          <button className="opt" onClick={() => handleButtonClick('DEL')}>
+            DEL
+          </button>
         </div>
       </div>
     </>
